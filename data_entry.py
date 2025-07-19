@@ -1,6 +1,6 @@
 from datetime import datetime
 date_format = "%d-%m-%Y"
-Categories = {"I":"Income" , "E":"Expenses"}
+Categories = {"I":"Income" , "E":"Expense"}
 
 def get_date(prompt, allow_default = False):
     date_str = input(prompt)
@@ -9,7 +9,7 @@ def get_date(prompt, allow_default = False):
     else:
         try:
             date = datetime.strptime(date_str,date_format)
-            return date.strftime(date,date_format)
+            return date.strftime(date_format)
         except ValueError:
             print("Please enter valid date!")
             return get_date(prompt, allow_default = False)
@@ -35,4 +35,4 @@ def get_amount():
         return get_amount()
 
 def get_description():
-    return input("Enter the description")
+    return input("Enter the description:")
